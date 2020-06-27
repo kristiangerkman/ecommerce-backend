@@ -1,0 +1,11 @@
+FROM Ubuntu
+
+RUN apt-get update
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
+
+COPY . 
+RUN cd /ecommerce-backend
+RUN npm install
+
+ENTRYPOINT /ecommerce-backend npm start
